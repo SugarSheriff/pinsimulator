@@ -6,12 +6,12 @@ const TAUNTS_WRONG = [
   "Wrong. The panel remembers. It will not tell you which digits were close.",
   "Incorrect. Somewhere, a vault is laughing at you.",
   "Nope. Come back tomorrow and be wrong again, probably.",
-  "That was not it. It was never going to be that.",
+  "That was not it. It was never going to be that easy.",
   "Access denied. The panel does not do partial credit.",
 ];
 
 const TAUNTS_CORRECT = [
-  "Correct. Tomorrow's code just got longer.",
+  "Correct. Don't get comfortable — tomorrow's code just got longer.",
   "You cracked it. The panel is already generating something worse.",
   "Somehow that worked. Enjoy the twelve seconds of satisfaction.",
 ];
@@ -27,10 +27,21 @@ function generateCode(len) {
   return arr;
 }
 
-function freshState() {
+async function hashDigits(digits) {
+  const data = new TextEncoder().encode(digits.join(''));
+  const buffer = await crypto.subtle.digest('SHA-256', data);
+  return Array.from(new Uint8Array(buffer)).map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+async function newSecretHash(len) {
+  return hashDigits(generateCode(len));
+}
+
+async function freshState() {
+  const length = 4;
   return {
-    secret: generateCode(4),
-    length: 4,
+    secretHash: await newSecretHash(length),
+    length,
     lastAttemptAt: null,
     lastResult: null,
     wins: 0,
@@ -38,15 +49,15 @@ function freshState() {
   };
 }
 
-function loadState() {
+async function loadState() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) throw new Error('no saved state');
     const parsed = JSON.parse(raw);
-    if (!parsed || !Array.isArray(parsed.secret)) throw new Error('bad state');
+    if (!parsed || typeof parsed.secretHash !== 'string') throw new Error('bad state');
     gameState = parsed;
   } catch (e) {
-    gameState = freshState();
+    gameState = await freshState();
     saveState();
   }
 }

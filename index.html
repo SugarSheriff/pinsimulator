@@ -5,23 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Keypad Simulator</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="stage">
   <header>
     <h1>Keypad Simulator</h1>
-    <p>One guess. Once every 24 hours. Get it wrong and the panel locks you out for a full day. No hints.</p>
+    <p>One guess every 24 hours. Get it wrong and the panel locks you out. No hints.</p>
   </header>
 
   <main>
     <section class="console">
+      <span class="screw screw-tl"></span>
+      <span class="screw screw-tr"></span>
+      <span class="screw screw-bl"></span>
+      <span class="screw screw-br"></span>
+      <div class="led-row">
+        <span class="led led-pwr" title="Power"></span>
+        <span class="led-text">PWR</span>
+        <span class="led led-lock" id="lockLed" title="Locked"></span>
+        <span class="led-text">LOCK</span>
+      </div>
       <div class="screen" id="screen">
         <div class="loading">Reading the panel...</div>
       </div>
       <div class="keypad" id="keypad"></div>
-      <button class="enter-btn" id="enterBtn" disabled>ENTER GUESS</button>
+      <button class="enter-btn" id="enterBtn" disabled>ENTER</button>
     </section>
 
     <aside class="ledger">

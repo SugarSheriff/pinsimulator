@@ -7,10 +7,8 @@ A deliberately cruel little browser game. Guess a hidden numeric code. You get o
 ```
 keypad-simulator/
 ├── index.html      # markup
-├── css/
-│   └── style.css   # styling
-└── js/
-    └── game.js     # game logic + persistence
+├── style.css       # styling
+└── game.js         # game logic + persistence
 ```
 
 ## How it works

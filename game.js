@@ -115,6 +115,7 @@ function setKeypadDisabled(disabled) {
 
 function renderScreen() {
   const screen = document.getElementById('screen');
+  const screenBody = document.getElementById('screenBody');
   const enterBtn = document.getElementById('enterBtn');
   const lockLed = document.getElementById('lockLed');
   const locked = isLocked();
@@ -124,8 +125,7 @@ function renderScreen() {
   if (locked) {
     setKeypadDisabled(true);
     enterBtn.disabled = true;
-    screen.innerHTML =
-      '<div class="screen-label">PANEL LOCKED</div>' +
+    screenBody.innerHTML =
       '<div class="lock-line">' + (gameState.lastResult === 'wrong' ? 'Wrong guess. Try again in:' : 'Come back in:') + '</div>' +
       '<div class="lock-timer" id="lockTimer">' + formatCountdown(msRemaining()) + '</div>';
   } else {
@@ -134,9 +134,7 @@ function renderScreen() {
     for (let i = 0; i < gameState.length; i++) {
       placeholders.push(i < guessBuffer.length ? guessBuffer[i] : '_');
     }
-    screen.innerHTML =
-      '<div class="screen-label">ENTER TODAY\'S GUESS</div>' +
-      '<div class="code-display" id="codeDisplay">' + placeholders.join(' ') + '</div>';
+    screenBody.innerHTML = '<div class="code-display" id="codeDisplay">' + placeholders.join(' ') + '</div>';
     enterBtn.disabled = guessBuffer.length !== gameState.length;
   }
 }

@@ -6,7 +6,7 @@ const TAUNTS_WRONG = [
   "Wrong. The panel remembers. It will not tell you which digits were close.",
   "Incorrect. Somewhere, a vault is laughing at you.",
   "Nope. Come back tomorrow and be wrong again, probably.",
-  "That was not it. It was never going to be that easy.",
+  "That was not it. It was never going to be that.",
   "Access denied. The panel does not do partial credit.",
 ];
 

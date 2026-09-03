@@ -12,23 +12,23 @@
 <div class="stage">
   <header>
     <h1>Keypad Simulator</h1>
-    <p>One guess every 24 hours. Get it wrong and the panel locks you out. No hints.</p>
+    <p>One guess. Once every 24 hours. Get it wrong and the panel locks you out for a full day. No hints. No mercy.</p>
   </header>
 
   <main>
     <section class="console">
-      <span class="screw screw-tl"></span>
-      <span class="screw screw-tr"></span>
-      <span class="screw screw-bl"></span>
-      <span class="screw screw-br"></span>
-      <div class="led-row">
-        <span class="led led-pwr" title="Power"></span>
-        <span class="led-text">PWR</span>
-        <span class="led led-lock" id="lockLed" title="Locked"></span>
-        <span class="led-text">LOCK</span>
-      </div>
       <div class="screen" id="screen">
-        <div class="loading">Reading the panel...</div>
+        <div class="screen-topbar">
+          <span class="brand">KEYPAD SIM</span>
+          <span class="power"><span class="led led-pwr"></span>POWER</span>
+        </div>
+        <div class="screen-body" id="screenBody">
+          <div class="loading">Reading the panel...</div>
+        </div>
+        <div class="screen-bottombar">
+          <span>STATUS</span>
+          <span class="lock-indicator"><span class="led led-lock" id="lockLed"></span>LOCK</span>
+        </div>
       </div>
       <div class="keypad" id="keypad"></div>
       <button class="enter-btn" id="enterBtn" disabled>ENTER</button>

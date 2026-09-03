@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keypad Simulator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="stage">
+  <header>
+    <h1>Keypad Simulator</h1>
+    <p>One guess. Once every 24 hours. Get it wrong and the panel locks you out for a full day. No hints. No mercy.</p>
+  </header>
+
+  <main>
+    <section class="console">
+      <div class="screen" id="screen">
+        <div class="loading">Reading the panel...</div>
+      </div>
+      <div class="keypad" id="keypad"></div>
+      <button class="enter-btn" id="enterBtn" disabled>ENTER GUESS</button>
+    </section>
+
+    <aside class="ledger">
+      <h2>Panel Log</h2>
+      <div class="stats" id="stats"></div>
+      <p class="taunt" id="taunt">Loading your history of failure...</p>
+    </aside>
+  </main>
+</div>
+
+<script src="js/game.js"></script>
+</body>
+</html>

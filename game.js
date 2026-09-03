@@ -116,7 +116,10 @@ function setKeypadDisabled(disabled) {
 function renderScreen() {
   const screen = document.getElementById('screen');
   const enterBtn = document.getElementById('enterBtn');
+  const lockLed = document.getElementById('lockLed');
   const locked = isLocked();
+
+  if (lockLed) lockLed.classList.toggle('active', locked);
 
   if (locked) {
     setKeypadDisabled(true);

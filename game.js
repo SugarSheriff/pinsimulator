@@ -11,7 +11,7 @@ const TAUNTS_WRONG = [
 ];
 
 const TAUNTS_CORRECT = [
-  "Correct. Don't get comfortable — tomorrow's code just got longer.",
+  "Correct. Tomorrow's code just got longer.",
   "You cracked it. The panel is already generating something worse.",
   "Somehow that worked. Enjoy the twelve seconds of satisfaction.",
 ];
